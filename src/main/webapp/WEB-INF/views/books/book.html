@@ -16,7 +16,6 @@
     <br>
     <hr>
 
-    <h2>GIVEN INFORMATION</h2>
     <div th:if="${person.isPresent()}">
         <h2>Книга выдана: <span th:text="${person.get().getName()}"/></h2>
         <form th:method="PATCH" th:action="@{/books/{id}/makefree(id=${book.getId()})}">

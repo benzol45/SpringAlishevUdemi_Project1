@@ -30,8 +30,9 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         super.onStartup(servletContext);
-        registerHiddenFieldFilter(servletContext);
+        //!!! Важно именно сначала фильтр с кодировками а потом хайден, иначе в телах POST-запросов ломается кириллица
         registerCharacterEncodingFilter(servletContext);
+        registerHiddenFieldFilter(servletContext);
     }
 
     private void registerHiddenFieldFilter(ServletContext aContext) {
